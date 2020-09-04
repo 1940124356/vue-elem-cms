@@ -1,8 +1,6 @@
-<!-- home -->
+<!--  -->
 <template>
-<div class='home'>
-  <h1>home</h1>
-</div>
+<div class=''></div>
 </template>
 
 <script>

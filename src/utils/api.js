@@ -1,10 +1,10 @@
 import axios from './fetch'
 
-export function getLogin(params) {
+export function getLogin(data) {
     return axios({
-        url:'',
-        method:'GET',
-        params
+        url:'/users/cms/login',
+        method:'POST',
+        data
     })
 }
 
