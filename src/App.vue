@@ -10,11 +10,11 @@
 </template>
 
 <script>
-
+import { KBLayout } from '@/components/'
 export default {
   name:'App',
   components:{
-    KBLayout:()=>import('@/components/common/layout/KBNav.vue')
+    KBLayout
   },
   mounted(){
     console.log(this.$route)

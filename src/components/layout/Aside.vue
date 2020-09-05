@@ -4,48 +4,33 @@
     
     <h5>KBMonster</h5>
     <el-menu
+        router
       default-active="2"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      background-color="rgb(0,21,39)"
       text-color="#fff"
+      background-color="rgb(0,21,39)"
       :unique-opened="true"
-      active-text-color="rgb(24,142,245)"
-      :router="true">
-
+      active-text-color="rgb(24,142,245)">
         <!-- 一级菜单 -->
         <el-submenu v-for="(nav,index) in navs" :key="nav.id" :index="index+''">   
             <template slot="title">
                 <i :class="nav.icon"></i>
-                
-                <span>公司管理</span>
+                <span v-text="nav.title" ></span>
             </template>
-            <el-menu-item-group>
-                <el-menu-item  index="1-1">公司管理(总览)</el-menu-item>
-                <el-menu-item index="1-2">公司信息维护</el-menu-item>
-                <el-menu-item index="1-3">员工管理</el-menu-item>
-                <el-menu-item index="1-4">公众号配置</el-menu-item>
-                <el-menu-item index="1-5">轮播图配置</el-menu-item>
-                <el-menu-item index="1-6">会员等级管理</el-menu-item>
-                <el-menu-item index="1-7">短信账户管理</el-menu-item>
-                <el-menu-item index="1-8">短信通知配置</el-menu-item>
-                <el-menu-item index="1-9">积分规则配置</el-menu-item>
-                <el-menu-item index="1-10">会员充值配置</el-menu-item>
+            <!-- 二级菜单 -->
+            <el-menu-item-group v-for="item in nav.children" :key='item.id'>
+                <router-link  :to='item.path' active-class="on">
+                <el-menu-item  
+                 v-text='item.title'   
+                :key="item.id+''" >
+                </el-menu-item>
+                </router-link>
             </el-menu-item-group>
         </el-submenu>
-        <!-- 第二栏 -->
-        <el-submenu index="2">   
-            <template slot="title">
-                <i class="el-icon-edit-outline"></i>
-                <span>店铺管理</span>
-            </template>
-            <el-menu-item-group>
-                <el-menu-item index="2-1">店铺(总览)</el-menu-item>
-                <el-menu-item index="2-2">店铺列表</el-menu-item>
-                <el-menu-item index="2-3">店铺粉丝</el-menu-item>
-            </el-menu-item-group>
-        </el-submenu>
+
+        
     </el-menu>
   
 </div>
@@ -61,7 +46,7 @@ components: {},
 data() {
 //这里存放数据
 return {
-
+    navs
 };
 },
 //监听属性 类似于data概念
@@ -98,11 +83,21 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
     .aside{
             height: 100%;
             background: rgb(0,21,39);
+            
+
             h5{
                 height: 65px;
                 line-height: 65px;
                 text-align: center;
                 color: #fff;
+            }
+            
+        }
+        .on{
+            display: block;
+            background: rgb(92, 92, 240);
+            li{
+                background: rgb(92, 92, 240) !important;
             }
         }
 </style>

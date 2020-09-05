@@ -1,4 +1,7 @@
-import KBNav from './common/KBNav.vue'
+import KBLayout from './layout/KBNav.vue'
+import CateSelect from './common/CateSelect.vue'
+
 export{
-    KBNav
+    KBLayout,
+    CateSelect
 }

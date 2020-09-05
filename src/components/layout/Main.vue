@@ -1,6 +1,8 @@
-<!--  -->
+<!-- Main -->
 <template>
-<div class=''></div>
+<div class='main'>
+    <router-view></router-view>
+</div>
 </template>
 
 <script>

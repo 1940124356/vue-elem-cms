@@ -5,19 +5,18 @@ Vue.use(VueRouter)
 import navs from '@/utils/navs'
 
 
-import Login from '@/components/common/login/login.vue'
+import Login from '@/components/login/login.vue'
 
 const routes = []
 
 navs.map(ele=>{
-  routes.push({path:ele.path,component:ele.comm})
   if(ele.children){
     ele.children.map(ele=>{
       routes.push({path:ele.path,component:ele.comm})
     })
   }
 })
-// console.log(routes)
+console.log(routes)
 const router = new VueRouter({
   routes : [
     ...routes,
@@ -26,6 +25,7 @@ const router = new VueRouter({
   ]
   
 })
+console.log(router)
 
 router.beforeEach(function(to, from, next) {
   if (to.path != '/login') {

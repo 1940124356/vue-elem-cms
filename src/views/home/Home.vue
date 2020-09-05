@@ -2,7 +2,7 @@
 <template>
 <div class='home'>
   <!-- 导航栏 -->
-
+  <h1>home</h1>
 </div>
 </template>
 

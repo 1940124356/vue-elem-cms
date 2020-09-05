@@ -40,12 +40,13 @@ computed: {},
 watch: {},
 //方法集合
 methods: {
-    loginid(){
+    async loginid(){
         //登录成功，存token
-        this.$http.getLogin({username:this.username,password:this.password}).then(res=>{
-            localStorage.setItem('token',res.token)
-            this.$router.push('/home')
-        })
+        var res= await this.$http.getLogin({username:this.username,password:this.password})
+
+        localStorage.setItem('token',res.token)
+        this.$router.push('/home')
+        
     }
 },
 //生命周期 - 创建完成（可以访问当前this实例）
